@@ -43,9 +43,22 @@ AI-powered assistant designed for IT support engineers to analyze issues and sug
 
 ## Run locally
 
-```bash
-streamlit run app.py
+**Windows (recommended):** from this folder, double-click `run.bat` or in PowerShell:
+
+```powershell
+.\run.ps1
 ```
+
+That uses the project `venv` so you do not need `streamlit` on your global or Conda PATH.
+
+**If you use `venv` manually:**
+
+```powershell
+.\venv\Scripts\Activate.ps1
+python -m streamlit run app.py
+```
+
+**Why `streamlit` was not found:** Streamlit is installed inside `venv`. Conda `(base)` does not include it unless you also `conda install streamlit` there. Prefer the project venv above.
 
 ## Use case
 
