@@ -1,65 +1,77 @@
-# AI Support Assistant (AIOps Chatbot)
+# AIOps — AI Support Assistant for IT Operations
+
+AI-powered AIOps platform with chatbot-based incident analysis, root cause detection, and automated resolution workflows.
 
 ## Overview
 
-AI-powered assistant designed for IT support engineers to analyze issues and suggest resolutions.
+This app streamlines IT operations by analyzing incidents, surfacing likely root causes, and suggesting resolution steps. It combines a **Streamlit** enterprise-style UI (dashboard, AI chat, simulated ServiceNow incidents, AIOps insights, automation, analytics) with optional **OpenAI** analysis.
 
-## Features
+---
 
-- Issue summarization
-- Root cause analysis
-- Suggested resolution steps
-- Interactive UI using Streamlit
+## Key features
 
-## Tech Stack
+- **AI Chat Assistant** — Conversational triage with structured output: summary, root cause, resolution steps, confidence, related incidents (simulated).
+- **Incidents (ServiceNow-style)** — Sample queue, detail pane, **Analyze with AI**.
+- **AIOps insights** — Trends, categories, clustering-style chart, heatmap, recommendations (sample data).
+- **Automation / utilities** — Simulated runbooks with status and logs.
+- **Analytics** — SLA trend, automation impact, engineer throughput (sample data).
 
-- Python
-- OpenAI API
-- Streamlit
+---
 
-## Setup
+## Tech stack
 
-1. Create a virtual environment (recommended):
+- Python, Streamlit, Plotly, Pandas  
+- OpenAI API (optional; **Demo mode** works offline)  
+- `python-dotenv` for local secrets  
 
-   ```bash
-   python -m venv venv
-   ```
+---
 
-2. Activate it:
+## Getting started
 
-   - Windows: `venv\Scripts\activate`
-   - macOS/Linux: `source venv/bin/activate`
+### 1. Clone the repository
 
-3. Install dependencies:
+```bash
+git clone https://github.com/chaitramalipatil/AIOps.git
+cd AIOps
+```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Virtual environment and dependencies
 
-4. Configure your API key:
+```bash
+python -m venv venv
+```
 
-   - Copy `.env.example` to `.env`
-   - Set `OPENAI_API_KEY` to your key
+**Windows:** `venv\Scripts\activate`  
+**macOS/Linux:** `source venv/bin/activate`
 
-## Run locally
+```bash
+pip install -r requirements.txt
+```
 
-**Windows (recommended):** from this folder, double-click `run.bat` or in PowerShell:
+### 3. API key (optional)
+
+- Copy `.env.example` to `.env`
+- Set `OPENAI_API_KEY` for live model calls  
+- Or enable **Demo mode (no API)** in the app sidebar if you have no quota or key.
+
+### 4. Run locally
+
+**Windows (recommended):** from the project folder:
 
 ```powershell
 .\run.ps1
 ```
 
-That uses the project `venv` so you do not need `streamlit` on your global or Conda PATH.
-
-**If you use `venv` manually:**
+Or:
 
 ```powershell
-.\venv\Scripts\Activate.ps1
-python -m streamlit run app.py
+.\venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-**Why `streamlit` was not found:** Streamlit is installed inside `venv`. Conda `(base)` does not include it unless you also `conda install streamlit` there. Prefer the project venv above.
+If `streamlit` is “not found” from Conda `(base)`, use the project `venv` commands above.
+
+---
 
 ## Use case
 
-Helps reduce manual effort in IT operations by providing instant AI-driven insights.
+Built for IT support, L2/L3 operations, and AIOps engineers who want a credible demo or starting point for wiring real ServiceNow / observability APIs.
